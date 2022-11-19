@@ -1,0 +1,115 @@
+@use "../styles/partials/variables";
+@use "../styles/partials/mixins";
+@use "../styles/partials/extends";
+
+body {
+  font-size: 16px;
+  padding: 0 5%;
+  background-color: variables.$color-background;
+  #navbar {
+    position: absolute;
+    // outline: variables.$outline-debug;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  .form-container {
+    .hero {
+      text-align: center;
+      h1 {
+        font-size: 3.8rem;
+        color: variables.$color-primary;
+        i {
+          color: rgb(229, 9, 20);
+          font-style: normal;
+        }
+      }
+      span {
+        @include mixins.flexbox();
+        font-size: 1.1rem;
+        font-weight: 300;
+        margin: 15% 0 30% 0;
+        z-index: 10;
+        color: variables.$color-primary;
+      }
+      #logo {
+        width: 25%;
+        height: auto;
+      }
+    }
+    @include mixins.flexbox($flexDirection: column);
+    // outline: variables.$outline-debug;
+    width: 100%;
+    height: 100vh;
+    #search-form {
+      @include mixins.flexbox($gap: 0, $flexWrap: nowrap);
+      width: 100%;
+      position: relative;
+      // outline: variables.$outline-debug;
+      height: 7%;
+      input {
+        position: relative;
+        top: 0;
+        height: 100%;
+        width: 80%;
+        font-size: 1rem;
+        border-radius: 50px;
+        padding: 2% 5%;
+        border: none;
+
+        // outline: none;
+      }
+      button {
+        z-index: 10;
+        position: absolute;
+        font-size: 1.5rem;
+        top: 10%;
+        left: 86.5%;
+        height: 80%;
+        width: 18%;
+        border-radius: 50px;
+        transform: translateX(-86.5%);
+        border: none;
+        // outline: none;
+        background-color: variables.$color-accent;
+        transition: variables.$best-transition;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .cards-container {
+    // outline: variables.$outline-debug;
+    @include mixins.flexbox($gap: 5%);
+    .card {
+      // outline: variables.$outline-debug;
+      width: 47.5%;
+      margin-bottom: 5%;
+      min-height: 100%;
+      background: linear-gradient(145deg, #0f0e0e, #121111);
+      box-shadow: 5px 5px 14px #0c0c0c, -5px -5px 14px #161414;
+      border-radius: 25px;
+      padding: 2%;
+      #movieImg {
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+      }
+      p {
+        a {
+          text-decoration: none;
+          color: variables.$color-primary;
+        }
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin: 5% 3%;
+      }
+
+      div {
+        // outline: variables.$outline-debug;
+        margin-top: 10%;
+      }
+    }
+  }
+}

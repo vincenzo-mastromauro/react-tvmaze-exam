@@ -2,8 +2,7 @@ import React from "react";
 import MovieDetail from "./pages/movies/movieDetail/movieDetail";
 import MovieList from "./pages/movies/movieList/movieList";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
-import "./App.scss";
+import "../src/styles/App.scss";
 
 function App() {
   const router = createBrowserRouter([
