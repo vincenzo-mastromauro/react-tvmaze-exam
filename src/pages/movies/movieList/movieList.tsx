@@ -1,8 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
 
-import { getShowsBySearch, ShowType } from "../../../api/_service";
+import { getShowsBySearch, ShowDetailType, ShowType } from "../../../api/_service";
 
-import { Link, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
+
+import Card from "../../../components/card/card";
 
 import Navbar from "../../../components/navbar/navbar";
 
@@ -15,6 +17,7 @@ const MovieList = () => {
   const [currentSearch, setCurrentSearch] = useSearchParams();
   const [shows, setShows] = useState<ShowType[]>([]);
 
+  //useEffect for check if the show is favorite or not
   const handleOnSearchChange = useCallback(
     (query: string) => {
       setCurrentSearch({ search: query });
@@ -71,16 +74,8 @@ const MovieList = () => {
         </form>
       </div>
       <div className='cards-container'>
-        {shows.map((el, id) => (
-          <div key={id} className='card'>
-            <img id='movieImg' src={el.image} alt='movie' />
-            <p title={el.title}>{<Link to={el.id.toString()}>{el.title}</Link>}</p>
-            <div>
-              <p>
-                <img src={StarIcon} alt='' />
-              </p>
-            </div>
-          </div>
+        {shows.map((el) => (
+          <Card el={el} key={el.id} />
         ))}
       </div>
     </>
