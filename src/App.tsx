@@ -1,39 +1,16 @@
-import React from "react";
 import "./App.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Login from "./pages/Login/Login";
-import Register from "./pages/Register/Register";
-import Reset from "./pages/Reset/Reset";
-import Dashboard from "./pages/Dashboard/Dashboard";
+import { AuthProvider } from "./pages/login/AuthContext";
+import Router from "./Router/router";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Login />,
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/register",
-    element: <Register />,
-  },
-  {
-    path: "/reset",
-    element: <Reset />,
-  },
-  {
-    path: "/dashboard",
-    element: <Dashboard />,
-  },
-]);
-function App() {
+const App = () => {
+  
   return (
     <>
-      <RouterProvider router={router} />
+      <AuthProvider>
+        <Router></Router>
+      </AuthProvider>
     </>
   );
-}
+};
 
 export default App;
