@@ -1,4 +1,4 @@
-import { UserContext } from "../login/AuthContext";
+import { UserContext } from "../Login/AuthContext";
 import Navbar from "../shared/Navbar";
 
 const Dashboard = () => {
