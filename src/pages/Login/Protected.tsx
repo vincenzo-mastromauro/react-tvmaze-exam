@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-import { UserContext, AuthProviderType } from "./AuthContext";
+import { UserContext, AuthProviderType } from "../../utilities/AuthContext";
 
 const Protected = ({ children }: AuthProviderType) => {
   const { currentUser } = UserContext();

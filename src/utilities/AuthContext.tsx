@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext, createContext } from "react";
-import { auth } from "../../firebase-config";
+import { auth } from "./firebase-config";
 import { User, onAuthStateChanged } from "firebase/auth";
 
 //interface of the authorization provider
@@ -39,14 +39,9 @@ export const AuthProvider = ({ children }: AuthProviderType) => {
         console.log("out");
       })
       .catch((err) => console.log(err));
-      
   };
 
-  return (
-    <AuthContext.Provider value={{ currentUser, logOut }}>
-      {children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={{ currentUser, logOut }}>{children}</AuthContext.Provider>;
 };
 
 export const UserContext = () => {
