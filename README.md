@@ -1,3 +1,20 @@
+# Realtime DB rules
+
+```json
+{
+  "rules": {
+    "users":{
+      "$uid":{
+        ".read": "auth.uid === $uid",
+        ".write": "auth.uid === $uid"
+      }
+    }
+  }
+}
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
