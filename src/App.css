@@ -1,0 +1,10 @@
+.ligthTheme,
+.ligthTheme * {
+  background-color: white;
+}
+
+.darkTheme,
+.darkTheme * {
+  background-color: black;
+  color: white;
+}
