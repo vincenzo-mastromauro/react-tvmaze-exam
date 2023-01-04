@@ -25,6 +25,8 @@ export const AuthProvider = ({ children }: AuthProviderType) => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setCurrentUser(user);
+        //aggiungi funzione writeUser del file firebaseDB
+        //writeUser(user.email, user.uid);
       } else {
         setCurrentUser(null);
       }
