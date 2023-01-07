@@ -1,0 +1,13 @@
+$outline-debug: 1px solid red;
+
+//darkmode
+$color-background: rgb(17, 16, 16);
+$color-primary: rgb(255, 255, 255);
+$color-accent: rgb(229, 9, 20);
+
+//lightmode
+// $color-background: rgb(255, 255, 255);
+// $color-primary: rgb(17, 16, 16);
+// $color-accent: rgb(229, 9, 20);
+
+$best-transition: all 0.75s cubic-bezier(0.215, 0.061, 0.355, 1);

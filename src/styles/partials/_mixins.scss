@@ -1,1 +1,51 @@
+@mixin callToAction($importance: 1) {
+  text-decoration: none;
+  font-weight: 400;
+  letter-spacing: 5px;
+  transition: all 0.5s ease;
+  text-align: center;
+  display: inline-block;
+  font-size: variables.$button-font-size;
+  border-radius: variables.$custom-border-radius;
+  padding: variables.$custom-padding;
+  width: 78%;
+  @if $importance == 1 {
+    color: variables.$color-background;
+    background-color: variables.$color-primary;
+    &:hover {
+    }
+  }
+  @if $importance == 2 {
+    background-color: variables.$color-background;
+    color: variables.$color-primary;
+    border: 2px solid variables.$color-primary;
+    &:hover {
+      background-color: variables.$color-primary;
+      color: variables.$color-background;
+    }
+  }
+  @if $importance == 3 {
+    background-color: variables.$color-background;
+    text-decoration: underline;
+    color: variables.$color-primary;
+    &:hover {
+      transform: translateX(10px);
+    }
+  }
+}
+
+@mixin flexbox(
+  $gap: 2%,
+  $justifyContent: center,
+  $alignItems: center,
+  $flexDirection: row,
+  $flexWrap: wrap
+) {
+  display: flex;
+  flex-wrap: $flexWrap;
+  flex-direction: $flexDirection;
+  align-items: $alignItems;
+  justify-content: $justifyContent;
+  gap: $gap;
+}
 
