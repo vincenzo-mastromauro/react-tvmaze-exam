@@ -1,9 +1,16 @@
-import React from "react";
-
 import "./App.css";
+import SignIn from "./authentication/SignIn";
+import SignUp from "./authentication/SignUp";
+import AuthDetails from "./pages/Profile/Profile";
 
 function App() {
-  return <h1>test</h1>;
+  return (
+    <div className='App'>
+      <SignIn />
+      <SignUp />
+      <AuthDetails />
+    </div>
+  );
 }
 
 export default App;
