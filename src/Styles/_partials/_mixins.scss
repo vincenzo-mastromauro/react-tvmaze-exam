@@ -1,0 +1,62 @@
+@import "./variables";
+
+@mixin callToAction($priority) {
+  cursor: pointer;
+  text-decoration: none;
+  outline: none;
+  font-family: inherit;
+  font-weight: 500;
+  border: none;
+  transition: $transition;
+  text-align: center;
+  display: inline-block;
+  font-size: $button-label;
+  padding: $button-padding;
+  border-radius: $border-radius;
+  box-shadow: $shadow;
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+  &:hover {
+    box-shadow: $shadow-hover;
+  }
+  &:active {
+    box-shadow: $shadow-active;
+  }
+  @if $priority == "primary" {
+    color: $primary;
+    background-color: $accent;
+  }
+  @if $priority == "secondary" {
+    color: $accent;
+    background-color: transparent;
+    border: 2px solid $accent;
+  }
+  @if $priority == "link" {
+    color: $accent;
+    background-color: transparent;
+    /* text-decoration: underline; */
+    box-shadow: none;
+    &:hover {
+      box-shadow: none;
+    }
+  }
+}
+
+@mixin flexbox($gap: 2%, $justifyContent: center, $alignItems: center, $flexDirection: row) {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: $flexDirection;
+  align-items: $alignItems;
+  justify-content: $justifyContent;
+  gap: $gap;
+}
+
+@mixin absolutePositioning($top, $left) {
+  position: absolute;
+  top: $top; //Y axis
+  left: $left; //X axis
+  //first value X axis, second value Y axis
+  transform: translate(-$left, -$top);
+}

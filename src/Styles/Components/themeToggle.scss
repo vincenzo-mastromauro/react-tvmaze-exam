@@ -1,0 +1,15 @@
+.toggle-wrapper {
+  width: max-content;
+  @include absolutePositioning(2%, 96%);
+  z-index: 200;
+  button {
+    border: 0px solid transparent;
+    outline: 0px solid transparent;
+    background-color: transparent;
+    svg {
+      width: 2rem;
+      height: 2rem;
+      fill: $primary;
+    }
+  }
+}

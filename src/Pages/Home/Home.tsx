@@ -1,16 +1,47 @@
 import React from "react";
-import { getAuth, signOut } from "firebase/auth";
+import { CurrentUserConsumer } from "../../Context/UserContext";
+import { auth, logout } from "../../Firebase/firebaseAuth";
+import { useFavorite } from "../../Hooks/useFavourite";
+import { useWatching } from "../../Hooks/useWatching";
 
-export interface IHomePageProps {}
+const HomePage = (props: any) => {
+  const { currentUser } = CurrentUserConsumer();
+  const favorites = useFavorite(currentUser?.uid);
+  const currentlyWatching = useWatching(currentUser?.uid);
 
-const HomePage: React.FunctionComponent<IHomePageProps> = (props) => {
-  const auth = getAuth();
-
+  console.log(favorites);
   return (
-    <div>
-      <p>Home Page (Protected by Firebase!)</p>
-      <button onClick={() => signOut(auth)}>Sign out of Firebase</button>
-    </div>
+    <>
+      <h1>Hello, {auth.currentUser?.displayName || "User"} </h1>
+      <h2>Favorites</h2>
+      {favorites &&
+        Object.keys(favorites).map((key, index) => {
+          return (
+            <div>
+              <p>{favorites[key].id}</p>
+              <p>{favorites[key].name}</p>
+              <img src={favorites[key].image} alt='' />
+            </div>
+          );
+        })}
+      <h2>Currently Watching</h2>
+      {currentlyWatching && (
+        <div>
+          {Object.keys(currentlyWatching).map((key, index) => {
+            return (
+              <div>
+                <p>{currentlyWatching[key].id}</p>
+                <p>{currentlyWatching[key].name}</p>
+                <img src={currentlyWatching[key].image} alt='' />
+              </div>
+            );
+          })}
+        </div>
+      )}
+      <button style={{ width: "100%" }} onClick={logout}>
+        Sign out
+      </button>
+    </>
   );
 };
 
